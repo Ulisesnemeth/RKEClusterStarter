@@ -12,7 +12,8 @@ jobs:
 
       - name: Check if RKE is already installed
         id: rke_installed
-        run: echo ::set-output name=is_installed::$(command -v rke)
+        env: 
+          is_installed: $(command -v rke)
 
       - name: descargar RKE bins
         run: |
