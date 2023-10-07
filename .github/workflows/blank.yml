@@ -1,34 +1,16 @@
 name: CI
-
 on:
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: self-hosted
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Check if RKE is already installed
-        id: rke_installed
-        run: echo ::set-output name=is_installed::$(command -v rke)
-
       - name: descargar RKE bins
-        run: |
-          if [ -z "${{ steps.rke_installed.outputs.is_installed }}" ]; then
-            wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
-          else
-            echo "RKE is already installed."
-          fi
-
+        run: wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
       - name: preparar RKE bins
         run: |
-          if [ -z "${{ steps.rke_installed.outputs.is_installed }}" ]; then
-            mv rke_linux-amd64 rke
-            chmod +x rke
-            sudo mv rke /usr/local/bin/
-            rke --version
-          else
-            echo "RKE is already installed. Skipping preparation."
-          fi
+          mv rke_linux-amd64 rke
+          chmod +x rke
+          sudo mv rke /usr/local/bin/
+          rke --version
