@@ -45,6 +45,7 @@ docker ps
 ```sh
 nano cluster.yml
 ```
+
 Aca hay un ejemplo:
 ```sh
 nodes:
@@ -55,6 +56,7 @@ nodes:
         - etcd
         - worker
 ```
+
 ## 5. Crear una clave ssh
 ```sh
 ssh-keygen
@@ -62,7 +64,26 @@ ssh-keygen
 ```sh
 ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
 ```
+
 ## 6. Levantar el cluster
 ```sh
 rke up
+```
+
+## 7. Intalar Kubectl para gestionar
+```sh
+sudo apt-get update
+# apt-transport-https may be a dummy package; if so, you can skip that package
+sudo apt-get install -y apt-transport-https ca-certificates curl
+```
+```sh
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+```sh
+# This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+```
+```sh
+sudo apt-get update
+sudo apt-get install -y kubectl
 ```
