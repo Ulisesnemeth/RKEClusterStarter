@@ -1,4 +1,4 @@
-name: Instalar RKE
+name: Instalar Docker
 on:
   workflow_dispatch:
 jobs:
@@ -22,5 +22,5 @@ jobs:
       - name: Instalar docker
         run: |
             sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-      - name: Verificar instalación de docker
+      - name: Verificar instalaciÃ³n de docker
         run: docker --version
