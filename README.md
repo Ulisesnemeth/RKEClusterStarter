@@ -16,7 +16,7 @@ sudo mv rke /usr/local/bin/
 rke --version
 ```
 
-# 2. Instalar docker
+## 2. Instalar docker
 ```sh
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
