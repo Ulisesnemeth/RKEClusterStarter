@@ -109,6 +109,7 @@ kubectl get nodes
 ```
 
 ## 8. Crear Deployment
+Sirve para que el cluster sepa cuantos pods usar, que imagen usar y que puerto usar para el API
 Ejemplo:
 ```sh
 nano deployejemplo.yaml
@@ -139,6 +140,7 @@ kubectl apply -f deployejemplo.yaml
 ```
 
 ## 9. Crear Service para exponer el deployment
+Sirve para exponer el API en un puerto (entre 30000 y 32767)
 Ejemplo:
 ```sh
 nano serviceejemplo.yaml
