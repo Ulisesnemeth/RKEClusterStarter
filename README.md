@@ -61,7 +61,7 @@ nodes:
 ```
 
 ## 5. Crea una clave ssh
-###### rke usa ssh para comunicarse con los nodos a la hora de levantar el cluster, incluyendo el controlplane.
+#### rke usa ssh para comunicarse con los nodos a la hora de levantar el cluster, incluyendo el controlplane.
 Crea una clave ssh:
 ```sh
 ssh-keygen
