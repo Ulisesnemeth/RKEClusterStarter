@@ -1,18 +1,21 @@
 # RKEClusterStarter
 Ubuntu 23.04
+
 ## 1. Instalar RKE bins
 ### https://rke.docs.rancher.com/installation
-### RKE is a fast, versatile Kubernetes installer that you can use to install Kubernetes on your Linux hosts. You can get started in a couple of quick and easy steps
-### RKE es un instalador de Kubernetes rapido y versatil que podes usar para instalar Kubernetes en tu servidor de linux.
+###### RKE is a fast, versatile Kubernetes installer that you can use to install Kubernetes on your Linux hosts. You can get started in a couple of quick and easy steps
+#### RKE es un instalador de Kubernetes rapido y versatil que podes usar para instalar Kubernetes en tu servidor de linux.
+Descargar bins:
 ```sh
 wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
 ```
+Hacelo ejecutable:
 ```sh
 mv rke_linux-amd64 rke
 chmod +x rke
 sudo mv rke /usr/local/bin/
 ```
-Para probar si ya podes usar rke:
+Proba si ya podes usar rke:
 ```sh
 rke --version
 ```
