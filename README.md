@@ -24,18 +24,25 @@ rke --version
 Fijate vos
 
 ## 3. Agregar usuario al grupo de docker
+#### Sino agregas tu usuario al grupo de docker en cada nodo, rke no va a poder acceder a la informacion que necesita para levantar el cluster.
+Agrega el usuario:
 ```sh
 sudo usermod -aG docker $(whoami)
 ```
+Deslogueate y logueate para probar el comando docker con el usuario:
 ```sh
 su - $(whoami)
 ```
+Proba el comando docker:
 ```sh
 docker ps
 ```
-Si podes ver la lista de contenedores vacia con tu usuario, segui con el paso 4
+Si no podes ver la lista de contenedores vacia con tu usuario, probablemente es porque no existia el grupo de docker en ubuntu, capaz porque instalaste mal docker, volve al paso 2 y hacelo bien.
 
 ## 4. Crear un archivo de configuracion para el cluster
+En este archivo vas a poner la informacion que necesita rke para levantar el cluster. En este ejemplo uso el minimal yml que esta en la documentacion de rke
+##### https://rke.docs.rancher.com/example-yamls#minimal-clusteryml-example
+Crea el archivo
 ```sh
 nano cluster.yml
 ```
@@ -54,17 +61,21 @@ nodes:
 ```
 
 ## 5. Crea una clave ssh
+#### rke usa ssh para comunicarse con los nodos a la hora de levantar el cluster, incluyendo el controlplane.
+Crea una clave ssh:
 ```sh
 ssh-keygen
+```
+Usa este comando para que rke pueda utilizar la clave ssh sin problemas:
+```sh
+ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
 ```
 Reemplaza NOMBREDELACLAVE con el nombre de la key, por defecto id_rsa.pub
 Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
 Reemplaza USUARIO con el usuario que agregaste al grupo docker
-```sh
-ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
-```
 
 ## 6. Levantar el cluster
+rke up levanta el cluster usando el archivo cluster.yml, todo lo que hiciste despues de instalar los binarios de rke fue para que este comando no tenga problemas a la hora de levantar los nodos.
 ```sh
 rke up
 ```
