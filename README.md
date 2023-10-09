@@ -87,3 +87,67 @@ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 sudo apt-get update
 sudo apt-get install -y kubectl
 ```
+
+## 7.1. Ejemplo para ver los nodos del cluster
+```sh
+export KUBECONFIG=kube_config_cluster.yml
+```
+```sh
+kubectl get nodes
+```
+
+## 8. Crear Deployment
+```sh
+nano deployejemplo.yaml
+```
+Ejemplo
+```sh
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: gcr.io/google-samples/hello-app:1.0
+        ports:
+        - containerPort: 8080
+```
+```sh
+kubectl apply -f deployejemplo.yaml
+```
+## 9. Crear Service para exponer el deployment
+```sh
+nano serviceejemplo.yaml
+```
+```sh
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 31000 
+  selector:
+    app: hello-world
+```
+```sh
+kubectl apply -f serviceejemplo.yaml
+```
+
+
+
+
+
