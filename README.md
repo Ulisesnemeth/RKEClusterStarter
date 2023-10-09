@@ -48,8 +48,8 @@ nano cluster.yml
 ```
 
 Aca hay un ejemplo:
-Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
-Reemplaza USUARIO con el usuario que agregaste al grupo docker
+##### Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
+##### Reemplaza USUARIO con el usuario que agregaste al grupo docker
 ```sh
 nodes:
     - address: IP_DEL_NODO
@@ -61,18 +61,18 @@ nodes:
 ```
 
 ## 5. Crea una clave ssh
-#### rke usa ssh para comunicarse con los nodos a la hora de levantar el cluster, incluyendo el controlplane.
+###### rke usa ssh para comunicarse con los nodos a la hora de levantar el cluster, incluyendo el controlplane.
 Crea una clave ssh:
 ```sh
 ssh-keygen
 ```
 Usa este comando para que rke pueda utilizar la clave ssh sin problemas:
+###### Reemplaza NOMBREDELACLAVE con el nombre de la key, por defecto id_rsa.pub
+###### Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
+###### Reemplaza USUARIO con el usuario que agregaste al grupo docker
 ```sh
 ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
 ```
-Reemplaza NOMBREDELACLAVE con el nombre de la key, por defecto id_rsa.pub
-Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
-Reemplaza USUARIO con el usuario que agregaste al grupo docker
 
 ## 6. Levantar el cluster
 rke up levanta el cluster usando el archivo cluster.yml, todo lo que hiciste despues de instalar los binarios de rke fue para que este comando no tenga problemas a la hora de levantar los nodos.
