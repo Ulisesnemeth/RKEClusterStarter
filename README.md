@@ -4,16 +4,22 @@
 ## 1. Instalar RKE bins
 ```sh
 wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
+```
+
+```sh
 mv rke_linux-amd64 rke
 chmod +x rke
 sudo mv rke /usr/local/bin/
+```
+
+```sh
 rke --version
 ```
 
 # 2. Instalar docker
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
-  sudo apt-get remove $pkg
-done
+```sh
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
 
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
