@@ -78,6 +78,8 @@ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 ```
 ```sh
 sudo apt-get update
+```
+```sh
 sudo apt-get install -y kubectl
 ```
 Para utilizar kubectl necesitas que la variable de entorno KUBECONFIG tenga el directorio del archivo kube_config_cluster.yml
