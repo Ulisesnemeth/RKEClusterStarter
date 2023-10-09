@@ -1,5 +1,4 @@
 # RKEClusterStarter
-# RKEClusterStarter
 
 ## 1. Instalar RKE bins
 ```sh
