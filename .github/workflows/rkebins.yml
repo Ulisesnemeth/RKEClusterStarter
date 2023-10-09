@@ -1,4 +1,4 @@
-name: CI
+name: Instalar RKE
 on:
   workflow_dispatch:
 jobs:
