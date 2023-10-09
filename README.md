@@ -70,7 +70,7 @@ ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
 rke up
 ```
 
-## 7. Intalar Kubectl para gestionar
+## 7. Intalar Kubectl para gestionar el cluster
 ```sh
 sudo apt-get update
 # apt-transport-https may be a dummy package; if so, you can skip that package
