@@ -1,10 +1,14 @@
 # RKEClusterStarter
-# 1. Instalar RKE bins
+# RKEClusterStarter
+
+## 1. Instalar RKE bins
+```sh
 wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
 mv rke_linux-amd64 rke
 chmod +x rke
 sudo mv rke /usr/local/bin/
 rke --version
+```
 
 # 2. Instalar docker
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do
