@@ -1,5 +1,5 @@
 # RKEClusterStarter
-
+Ubuntu 23.04
 ## 1. Instalar RKE bins
 ```sh
 wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
