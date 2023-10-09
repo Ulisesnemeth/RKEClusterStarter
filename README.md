@@ -55,12 +55,14 @@ nodes:
         - etcd
         - worker
 ```
-
-
-
-
-
-
-
-
-
+## 5. Crear una clave ssh
+```sh
+ssh-keygen
+```
+```sh
+ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
+```
+## 6. Levantar el cluster
+```sh
+rke up
+```
