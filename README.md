@@ -9,6 +9,7 @@ mv rke_linux-amd64 rke
 chmod +x rke
 sudo mv rke /usr/local/bin/
 ```
+Para probar si ya podes usar rke:
 ```sh
 rke --version
 ```
@@ -26,6 +27,7 @@ su - $(whoami)
 ```sh
 docker ps
 ```
+Si podes ver la lista de contenedores vacia con tu usuario, segui con el paso 4
 
 ## 4. Crear un archivo de configuracion para el cluster
 ```sh
@@ -33,6 +35,8 @@ nano cluster.yml
 ```
 
 Aca hay un ejemplo:
+Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
+Reemplaza USUARIO con el usuario que agregaste al grupo docker
 ```sh
 nodes:
     - address: IP_DEL_NODO
@@ -43,10 +47,13 @@ nodes:
         - worker
 ```
 
-## 5. Crear una clave ssh
+## 5. Crea una clave ssh
 ```sh
 ssh-keygen
 ```
+Reemplaza NOMBREDELACLAVE con el nombre de la key, por defecto id_rsa.pub
+Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
+Reemplaza USUARIO con el usuario que agregaste al grupo docker
 ```sh
 ssh-copy-id -i ~/.ssh/NOMBREDELACLAVE.pub USUARIO@IP_DEL_NODO
 ```
