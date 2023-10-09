@@ -4,13 +4,11 @@
 ```sh
 wget https://github.com/rancher/rke/releases/download/v1.4.10/rke_linux-amd64
 ```
-
 ```sh
 mv rke_linux-amd64 rke
 chmod +x rke
 sudo mv rke /usr/local/bin/
 ```
-
 ```sh
 rke --version
 ```
@@ -31,3 +29,38 @@ sudo apt-get update
 ```sh
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+## 3. Agregar usuario al grupo de docker
+```sh
+sudo usermod -aG docker $(whoami)
+```
+```sh
+su - $(whoami)
+```
+```sh
+docker ps
+```
+
+## 4. Crear un archivo de configuracion para el cluster
+```sh
+nano cluster.yml
+```
+Aca hay un ejemplo:
+```sh
+nodes:
+    - address: IP_DEL_NODO
+      user: USUARIO
+      role: 
+        - controlplane 
+        - etcd
+        - worker
+```
+
+
+
+
+
+
+
+
+
