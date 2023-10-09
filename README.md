@@ -146,7 +146,7 @@ spec:
 ```sh
 kubectl apply -f serviceejemplo.yaml
 ```
-
+## Ya podes enviar un get request al deploy usando la ip del nodo y el puerto 31000
 
 
 
