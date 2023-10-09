@@ -51,8 +51,8 @@ Aca hay un ejemplo:
 nodes:
     - address: IP_DEL_NODO
       user: USUARIO
-      role: 
-        - controlplane 
+      role:
+        - controlplane
         - etcd
         - worker
 ```
@@ -97,10 +97,10 @@ kubectl get nodes
 ```
 
 ## 8. Crear Deployment
+Ejemplo:
 ```sh
 nano deployejemplo.yaml
 ```
-Ejemplo
 ```sh
 apiVersion: apps/v1
 kind: Deployment
@@ -125,7 +125,9 @@ spec:
 ```sh
 kubectl apply -f deployejemplo.yaml
 ```
+
 ## 9. Crear Service para exponer el deployment
+Ejemplo:
 ```sh
 nano serviceejemplo.yaml
 ```
@@ -139,13 +141,14 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    nodePort: 31000 
+    nodePort: 31000
   selector:
     app: hello-world
 ```
 ```sh
 kubectl apply -f serviceejemplo.yaml
 ```
+
 ## Ya podes enviar un get request al deploy usando la ip del nodo y el puerto 31000
 ```sh
 curl 192.168.1.189:31000
