@@ -48,8 +48,8 @@ nano cluster.yml
 ```
 
 Aca hay un ejemplo:
-##### Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
-##### Reemplaza USUARIO con el usuario que agregaste al grupo docker
+###### Reemplaza IP_DEL_NODO con el ipv4 interno del nodo, por ejemplo 192.168.1.80
+###### Reemplaza USUARIO con el usuario que agregaste al grupo docker
 ```sh
 nodes:
     - address: IP_DEL_NODO
