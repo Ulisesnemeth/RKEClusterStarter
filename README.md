@@ -167,3 +167,8 @@ kubectl apply -f serviceejemplo.yaml
 ```sh
 curl 192.168.1.189:31000
 ```
+
+## Para crear un sc
+```sh
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+```
