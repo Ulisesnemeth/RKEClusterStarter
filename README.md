@@ -21,7 +21,7 @@ rke --version
 ```
 
 ## 2. Instalar docker
-Fijate vos
+https://docs.docker.com/engine/install/ubuntu/
 
 ## 3. Agregar usuario al grupo de docker
 #### Sino agregas tu usuario al grupo de docker en cada nodo, rke no va a poder acceder a la informacion que necesita para levantar el cluster.
