@@ -20,7 +20,7 @@ Proba si ya podes usar rke:
 rke --version
 ```
 
-## 2. Instalar docker
+## 2. Instalar docker (No usar una version posterior a la 24.0.0)
 https://docs.docker.com/engine/install/ubuntu/
 
 ## 3. Agregar usuario al grupo de docker
